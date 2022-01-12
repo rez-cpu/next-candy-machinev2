@@ -29,6 +29,7 @@ export const DarkContainer = ({
   const normalPrice: any | undefined = candyMachine?.state?.price;
   const discountPrice: any | undefined =
     candyMachine?.state?.whitelistMintSettings?.discountPrice;
+
   const balance = useWalletBalance()[0].toFixed(2);
   if (mintInfo) {
     return (
@@ -49,7 +50,7 @@ export const DarkContainer = ({
         <div className="flex flex-col mr-4">
           <div>Price</div>
           <div className="text-l font-normal">
-            {whiteList
+            {whiteList && discountPrice
               ? discountPrice / LAMPORTS_PER_SOL
               : normalPrice / LAMPORTS_PER_SOL}
             &nbsp; SOL
